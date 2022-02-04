@@ -1,0 +1,64 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+	var raio = 10;
+	var xAle = sorteiaPosicao(600);
+	var yAle = sorteiaPosicao(400);
+	
+
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+
+    }
+
+    function limpaTela() {
+
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+	function desenhaAlvo(x, y){
+		desenhaCirculo(x, y, raio + 20, 'red');	
+		desenhaCirculo(x, y, raio + 10, 'white');	
+		desenhaCirculo(x, y, raio, 'red');
+	}
+	
+	function sorteiaPosicao(maximo){
+		return Math.floor(Math.random() * maximo); // floor arrendoda pra baixo
+	}
+
+	function atualizaTela(){
+		limpaTela();
+		xAle = sorteiaPosicao(600);
+		yAle = sorteiaPosicao(400);
+
+		desenhaAlvo(xAle, yAle);
+	}
+
+	function dispara(evento){
+		var x = evento.pageX - tela.offsetLeft;
+		var y = evento.pageY - tela.offsetTop;
+
+		if(( x > xAle - raio) 
+			&& (x < xAle + raio) 
+				&& (y > yAle - raio) 
+					&&( y < yAle + raio)){
+			alert('Acertou');
+		}
+	}
+	
+	tela.onclick = dispara; // toda vez que clica no canvas dispara um evento
+
+	setInterval(atualizaTela, 1000);
+	
+</script>

@@ -1,0 +1,31 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+	//width = largura / height = altura
+	// api - bibliotecas (de funcoes e propriedades) 
+
+	var tela = document.querySelector('canvas');//função
+	var pincel =  tela.getContext('2d');//função
+
+	pincel.fillStyle = 'lightgrey'; //propriedade
+	pincel.fillRect(0, 0, 600, 400); // (x(onde começa),z(onde começa), ate quanto, ate quanto) fill = preencer rect = retangulo//função
+	
+	pincel.fillStyle = 'green'; //propriedade
+	pincel.fillRect(0, 0, 200, 400);
+	
+	pincel.fillStyle = 'red'; //propriedade
+	pincel.fillRect(400, 0, 200, 400);  
+
+	pincel.fillStyle = 'yellow';
+	pincel.beginPath(); // começar um novo caminho - função
+	pincel.moveTo(300, 200); //mova-se
+	pincel.lineTo(200, 400); //
+	pincel.lineTo(400, 400);
+	pincel.fill();
+
+	pincel.fillStyle = 'blue';
+	pincel.beginPath(); 
+	pincel.arc(300, 200, 50, 0, 2*3.14); // arco - bolinha			
+	pincel.fill(); 
+	
+</script>

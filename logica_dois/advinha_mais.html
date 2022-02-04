@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+	<input/> <!-- input = entrada -->
+	<button>Compare com meu segredo</button>
+
+<script>
+	var segredo = Math.round(Math.random() * 10);
+
+	var input = document.querySelector("input");
+	input.focus(); //faz a caixinha ganhar foco
+
+	function verifica() {
+		if (input.value == segredo){
+			alert("Ok");
+		}else{
+			alert("NOT OK");
+		}
+		input.value = "";
+		input.focus(); //faz a caixinha ganhar foco
+	}
+	
+	var button = document.querySelector("button");
+
+	button.onclick = verifica; //a função verifica sem () (quando usa() vc chama a função, quando n usa aparece o codigo da funcao) faz que a função verifica seja jogada/copiada para dentro do onclick fazendo assim funcionar
+	
+	
+</script>

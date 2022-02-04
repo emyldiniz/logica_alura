@@ -1,0 +1,55 @@
+ <canvas width="600" height="400"></canvas>
+
+<script>
+    	var tela = document.querySelector('canvas');
+   	var pincel = tela.getContext('2d');
+
+    	pincel.fillStyle = 'grey';
+    	pincel.fillRect(0, 0, 600, 400);
+
+	var cores = ['yellow', 'red', 'pink']
+	var i = 0;
+
+	var raio = 10;//aq a cada funcao chamada ela fica um valor somado com 10. colocamos a var global, pq se ela continuase dentro da funcao a cada clique voltaria para o valor inicial
+
+	function desenhaCirculo(evento) {
+		
+		var x = evento.pageX - tela.offsetLeft;
+        	var y = evento.pageY - tela.offsetTop;
+		
+		//var raio = 10; aq ela volta no valor inicial a cada vez q a funcao é chamada
+		if (evento.shiftKey) {
+			if(raio <= 40){
+				raio += 10;
+			}
+	       	}
+		
+		if(event.altKey){
+			if ( raio > 10){ 
+				raio -= 5;
+			}
+		}
+		
+ 
+		pincel.fillStyle = cores[i];
+        	pincel.beginPath();
+        	pincel.arc(x, y, raio, 0, 2 * 3.14);
+        	pincel.fill();
+        	console.log(x + ',' + y);
+   	}
+
+	
+	function mudaCor() {
+        	i++;
+        		if(i >= cores.length) {
+            			i = 0; // volta para a primeira cor
+       			}
+
+        	return false; // para não exibir o menu padrão do canvas
+    	}
+
+
+	tela.oncontextmenu = mudaCor;
+    	tela.onclick = desenhaCirculo;
+
+</script>

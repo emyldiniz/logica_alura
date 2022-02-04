@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+
+	<input/> <!-- input = entrada -->
+	<button>Compare com meu segredo</button>
+
+<script>
+	var segredos = [5, 6, 7, 10, 2];
+
+	var input = document.querySelector("input");
+	input.focus(); //faz a caixinha ganhar foco 
+
+	function verifica() {
+		
+		var achou =  false;
+
+		for( var posicao = 0; posicao < segredos.length; posicao++) { // length retorna a quantidade de elementos q o array tem
+
+			if (input.value == segredos[posicao]){
+
+				alert("Ok");
+				achou = true;
+				break;
+			}
+		}
+		if (achou == false){
+			alert("NOT OK");
+		}
+
+		input.value = "";
+		input.focus(); //faz a caixinha ganhar foco
+		
+	}
+	
+	var button = document.querySelector("button");
+
+	button.onclick = verifica; //a função verifica sem () (quando usa() vc chama a função, quando n usa aparece o codigo da funcao) faz que a função verifica seja jogada/copiada para dentro do onclick fazendo assim funcionar
+	
+	
+</script>

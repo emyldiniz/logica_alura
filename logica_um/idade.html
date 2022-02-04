@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+
+<script>
+	
+	/*function pulaLinha() {
+
+		document.write("<br>");
+	}
+
+	function mostraTitulo(texto) {
+		
+		document.write("<h3>" + texto + "</h3>");
+		pulaLinha();
+
+	}
+
+	function mostraParagrafo(texto) {
+
+		 document.write("<p>" + texto + "</p>");
+	}
+
+	var minhaIdade = 20;
+	var idadeIrmao = 13;
+
+	mostraTitulo("Quantos anos de diferença você tem do seu irmão?");
+	mostraParagrafo("Tenho " + (minhaIdade-idadeIrmao) + " anos de diferença");*/
+
+	function pulaLinha() {
+
+		document.write("<br>");	
+	}
+
+	function mostra(texto) {
+		
+		document.write("<h3>" + texto + "</h3>")
+	}
+
+	var anoInicio = 1500;
+	var anoFinal = 2022;
+	var calculoAno = anoFinal - anoInicio;
+	var mediaAno = calculoAno/28;
+
+	mostra("Se passaram " + Math.round(mediaAno) + " gerações!");
+
+</script>

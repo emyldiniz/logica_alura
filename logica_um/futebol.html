@@ -1,0 +1,21 @@
+<meta charset: "UTF-8">
+
+<script>
+//NaN = not a number =  n é um numero
+	function pulaLinha() {
+		document.write("<br>");
+	}
+
+	function mostra(frase){
+		document.write(frase);
+		pulaLinha();
+	}
+
+	var vitorias = parseInt(prompt("Ente com o numeros de vitorias")); //prompt retorna smp como texto, o parseInt transforma a string em int
+	var empates = parseInt(prompt("Entre com o numero de empates"));
+
+	var pontos = (vitorias * 3) + empates; //prompt so retorna a numero com * e /
+	
+	mostra(pontos);
+
+</script>

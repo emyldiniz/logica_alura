@@ -1,0 +1,32 @@
+<meta charset: "UTF-8">
+
+<script>
+//imc - indice de massa corporal peso / altura * altura
+	
+	function pulaLinha() {
+		document.write("<br>");
+	}
+
+	function mostra(frase){
+		document.write(frase);
+		pulaLinha();
+	}
+	
+	function calculaImc(altura, peso) { //função retorna ao um parametro
+
+    		//var imc = peso / (altura * altura);
+    		//return imc; // uma instrução que retorna o valor do calculo do imc deixando-o disponivel
+		//return 10;
+		return peso / (altura * altura); // da no mesmo fazer isso aq
+	}
+	
+	// var totalImc = calculaImc(1.76, 50) + calculaImc(1.72, 68); tbm tem como fazer dessa maneira 
+	var imcEmilly = calculaImc(1.76, 50);
+	var imcAmigo = calculaImc(1.72, 68);
+	var totalImc = imcEmilly + imcAmigo;
+	mostra("A soma dos imc's é " + Math.round(totalImc));
+	
+	mostra(Math.round(imcEmilly));
+	mostra(Math.round(imcAmigo));
+
+</script>

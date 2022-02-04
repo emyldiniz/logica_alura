@@ -1,0 +1,80 @@
+<meta charset="UTF-8">
+
+	<input/> <!-- input = entrada -->
+	<button>Compare com meu segredo</button>
+
+<script>
+
+	function sorteia() {
+		return (Math.round(Math.random() * 10));
+	}
+	
+	function sorteiaNumeros(quantidade) {
+		
+		var segredos = [];
+
+		var num = 1;
+
+		while( num <= quantidade) {
+	
+			var numAleatorio = sorteia();
+
+			if (numAleatorio != 0){
+				var achou = false;
+
+				for(posicao = 0; posicao < segredos.length; posicao++){
+					if(segredos[posicao] == numAleatorio){
+						achou = true;
+						break;
+					}
+				}
+			
+				if ( achou == false) {
+					segredos.push(numAleatorio);
+					num++;
+				}
+			}
+		}
+		return segredos; 	
+	}
+
+	var segredos = sorteiaNumeros(5);
+
+	/*segredos.push(5); //empurra(push) pra dentro do array 
+	segredos.push(sorteia());
+	segredos.push(sorteia());
+	segredos.push(sorteia());*/
+	
+	console.log(segredos);
+
+	var input = document.querySelector("input");
+	input.focus(); //faz a caixinha ganhar foco 
+
+	function verifica() {
+		
+		var achou =  false;
+
+		for( var posicao = 0; posicao < segredos.length; posicao++) { // length retorna a quantidade de elementos q o array tem
+
+			if (input.value == segredos[posicao]){
+
+				alert("Ok");
+				achou = true;
+				break;
+			}
+		}
+		if (achou == false){
+			alert("NOT OK");
+		}
+
+		input.value = "";
+		input.focus(); //faz a caixinha ganhar foco
+		
+	}
+	
+	var button = document.querySelector("button");
+
+	button.onclick = verifica; //a função verifica sem () (quando usa() vc chama a função, quando n usa aparece o codigo da funcao) faz que a função verifica seja jogada/copiada para dentro do onclick fazendo assim funcionar
+	
+	
+</script>
